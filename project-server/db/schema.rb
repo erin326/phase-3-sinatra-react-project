@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_10_24_220011) do
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
   end
 
   create_table "movies", force: :cascade do |t|

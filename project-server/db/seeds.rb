@@ -6,7 +6,7 @@ Movie.delete_all
 genre_names = ["Horror", "Thriller", "Fantasy", "Romantic Comedy", "Comedy", "Drama"]
 
 genre_names.map do |name|
-    Genre.create(name: name)
+    Genre.create(title: name)
 end
 
 Genre.all.each do |genre|
