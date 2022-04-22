@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Movie from './Movie';
 
 
-function MovieList({movies}) {
+
+
+function MovieList({movies, onMovieDelete, onUpdateMovie }) {
 
     return(
         <div>
@@ -14,6 +16,9 @@ function MovieList({movies}) {
                     title={movie.title}
                     quote={movie.quote}
                     rating={movie.rating}
+                    onMovieDelete={onMovieDelete}
+                    onUpdateMovie={onUpdateMovie}
+                    // genre={movie.genre.name}
                     />
                 ))}
              

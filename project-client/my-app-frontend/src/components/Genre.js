@@ -1,21 +1,10 @@
-import React from 'react';
+function Genre(genre) {
 
-function Genre({movies}) {
-    const {id, genre} = genre
-
+    console.log(genre.genre);
     return(
-        <div>
-            <span>
-                {movies.map((movie) => (
-                    <Genre 
-                    key={movie.title}
-                    genre={movie.genre.name}
-                    />
-                ))}
-            </span>
-
-
-        </div>
+        <>
+        <p>{genre.genre.title}</p>
+        </>
     )
 }
 
