@@ -11,7 +11,6 @@ function GenreList({movies}) {
     //   }
 
     function createGenre(e) {
-        e.preventDefault();
         fetch(`http://localhost:9292/genres`, {
             method: "POST",
             headers: {

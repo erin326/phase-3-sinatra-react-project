@@ -7,12 +7,16 @@ function Movie({  movie, onMovieDelete, onUpdateMovie }) {
 //   const movieGenre = movie.genre;
 
     const [isUpdating, setIsUpdating] = useState(false);
-    const [genre, setGenre] = useState('')
+    const [thisGenre, setThisGenre] = useState('')
 
   useEffect(() => {
         fetch(`http://localhost:9292/movies/${id}`)
         .then((r) => r.json())
-        .then((genre) => setGenre(genre.title))
+        .then((genre) => {
+            if(genre !== null) {
+                setThisGenre(genre.title)}
+            })
+           
     }, [])
 
     function handleDelete() {
@@ -43,7 +47,8 @@ function Movie({  movie, onMovieDelete, onUpdateMovie }) {
                         <span><strong>{title} </strong></span>
                         <span> <em>quote:</em> "{quote}" </span>
                         <span ><em>rating:</em> {rating} </span>
-                        <span> genre: {genre}</span>
+                        {thisGenre ?  <span> genre: {thisGenre}</span> : null}
+                       
                     </div>
                 )}
 
@@ -61,7 +66,7 @@ function Movie({  movie, onMovieDelete, onUpdateMovie }) {
                 </div>   
                 
             </li>
-         
+            
 
         </div>
     )

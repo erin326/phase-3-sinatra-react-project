@@ -15,20 +15,13 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/movies' do 
-    puts params
-
-    # new_movie = Movie.create(
-    #   title: params[:title],
-    #   genre: params["genre"]["name"],
-    #   quote: params[:quote],
-    #   rating: params[:rating]
-    # )
-    # new_movie.to_json
-
+    
     movie_params = params.select do |k, v|
       ["title", "quote", "rating", "genre"].include?(k)
 
+
     end
+    
     movie = Movie.create(movie_params)
     movie.to_json
   end

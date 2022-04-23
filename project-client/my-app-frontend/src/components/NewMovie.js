@@ -3,17 +3,8 @@ import React, { useState } from 'react';
 
 function NewMovie({ onAddMovie }) {
 
-
-    // const history = useHistory()
-    // const [formData, setFormData] = useState({
-    //     title: '',
-    //     genre: '',
-    //     quote: '',
-    //     rating: ''
-    // });
-
     const [title, setTitle] = useState("");
-    const [genreName, setGenreName] = useState("");
+ 
     const [quote, setQuote] = useState("");
     const [rating, setRating] = useState("");
 
@@ -28,7 +19,6 @@ function NewMovie({ onAddMovie }) {
             },
             body: JSON.stringify({
                 title, 
-                genre_name: genreName,
                 quote, 
                 rating
             }),
@@ -37,7 +27,6 @@ function NewMovie({ onAddMovie }) {
         .then((movie) => {
             console.log(movie)
             onAddMovie(movie);
-            setGenreName(genreName)
         });
     
     }
@@ -57,14 +46,7 @@ function NewMovie({ onAddMovie }) {
                     onChange={e => setTitle(e.target.value)}
                     ></input>
                     </label>
-                <label>Genre:
-                    <input 
-                    type='text'
-                    id='genre'
-                    value={genreName}
-                    onChange={e => setGenreName(e.target.value)}
-                    />
-                </label>
+            
                 <label>Quote:
                     <input 
                     type='text'
